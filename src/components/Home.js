@@ -8,6 +8,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
+  // function for deleting the contact
   const deleteContact = (id) => {
     dispatch({ type: "DELETE_CONTACT", payload: id });
     toast.success("Contact deleted successfully!");

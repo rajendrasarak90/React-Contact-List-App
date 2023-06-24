@@ -10,11 +10,13 @@ import contactReducer from './redux/reducers/contactReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 
+// redux store for storing the state
 const store = createStore(contactReducer, composeWithDevTools());
 
 const root = createRoot(document.querySelector('#root'));
 
 root.render(
+    // Provider component in which app component is wrapped and gets state
     <Provider store={store}>
         <Router>
             <App />

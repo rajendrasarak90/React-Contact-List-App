@@ -13,10 +13,12 @@ const App = () => {
   useEffect(() => {
     const data = [];
     const promise = async () => {
+      // fetching all the contacts from API endpoint
       await fetch("https://jsonplaceholder.typicode.com/users/")
         .then((response) => response.json())
         .then((json) => {
           json.forEach((contact) => {
+            // pushing data to the array
             data.push({
               id: contact.id,
               name: contact.name,
@@ -25,6 +27,7 @@ const App = () => {
             });
           });
         });
+        // loading the data into the redux store using dispatch
       dispatch({ type: "FETCH_CONTACTS", payload: data });
     };
     promise();

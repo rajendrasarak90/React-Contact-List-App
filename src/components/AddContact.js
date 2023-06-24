@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddContact = () => {
+  // hooks for updating user entered states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -12,7 +13,7 @@ const AddContact = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  // function executes after clicking submit
   const handelSubmit = (e) => {
     e.preventDefault();
 
@@ -41,8 +42,8 @@ const AddContact = () => {
       email,
       number,
     };
-
-    dispatch({ type: "ADD_CONTACT", payload: data });
+    // add contact to the store
+    dispatch({ type: "ADD_CONTACT", payload: data }); 
     toast.success("Contact added successfully!!");
     navigate("/");
   };

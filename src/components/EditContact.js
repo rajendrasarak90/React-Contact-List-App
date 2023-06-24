@@ -4,20 +4,23 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const EditContact = () => {
+  // hooks for updating user entered states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
 
-  const { id } = useParams();
+  const { id } = useParams(); // getting contact id from params
 
   const contacts = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // finding contact to edit by comparing id's
   const currentContact = contacts.find(
     (contact) => contact.id === parseInt(id)
   );
 
   useEffect(() => {
+    // setting the edited values
     if (currentContact) {
       setName(currentContact.name);
       setEmail(currentContact.email);
@@ -25,9 +28,10 @@ const EditContact = () => {
     }
   }, [currentContact]);
 
+  // function executes after clicking update contact
   const handelSubmit = (e) => {
     e.preventDefault();
-
+    // checking the email & phone for previous existance
     const checkEmail = contacts.find(
       (contact) => contact.id !== parseInt(id) && contact.email === email
     );
@@ -54,7 +58,7 @@ const EditContact = () => {
       email,
       number,
     };
-
+    // update contact to the store
     dispatch({ type: "UPDATE_CONTACT", payload: data });
     toast.success("Contact updated successfully!!");
     navigate("/");
