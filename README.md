@@ -4,10 +4,12 @@ The Contact List App is a simple React application that allows users to manage a
 
 ### Hosted Link:
 
+https://contact-list-ctgb.onrender.com/
+
 ### Installation
 
-1. Clone the repository: `git clone <repository_url>`
-2. Navigate to the project directory: `cd contact-list-app`
+1. Clone the repository: `git clone https://github.com/rajendrasarak90/React-Contact-List-App.git`
+2. Navigate to the project directory: `cd contact-list`
 3. Install dependencies: `npm install`
 
 ### Usage
